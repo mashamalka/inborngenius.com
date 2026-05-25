@@ -75,7 +75,7 @@ nav.is-hidden { transform: translateY(-100%); }
 .hero {
   min-height: 100vh;
   display: grid; grid-template-columns: 1.15fr 0.85fr;
-  padding-top: 82px;
+  padding: 82px 0 0 0;
 }
 .hero-left {
   padding: 96px 64px 96px;
