@@ -67,33 +67,33 @@
         And yet… <strong>underinvestment in the people side of transformation is the #1 predictor of transformation failure.</strong>
       </p>
     </div>
-    <div style="position:relative; overflow:hidden; height:520px;">
+    <div class="image-stats-wrap">
       <img src="images/hero-presenting.jpg"
            alt="Dr. Masha Malka presenting to leadership team"
-           style="width:100%; height:100%; object-fit:cover; object-position:center 30%; filter:brightness(0.85) contrast(1.05);">
-      <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(30,28,21,0.4) 0%, transparent 40%);"></div>
-    </div>
-  </div>
-  <div class="stats-grid">
-    <div class="stat-box">
-      <div class="s-num">&lt;5%</div>
-      <div class="s-text">is what many companies statistically spend on the people side of transformation</div>
-      <div class="s-src">Prosci Best Practices Research</div>
-    </div>
-    <div class="stat-box">
-      <div class="s-num">10–15%</div>
-      <div class="s-text">is the minimum investment Prosci recommends for successful transformation efforts</div>
-      <div class="s-src">Prosci Best Practices Research</div>
-    </div>
-    <div class="stat-box">
-      <div class="s-num">70%</div>
-      <div class="s-text">of transformations fall short of what they originally set out to achieve</div>
-      <div class="s-src">McKinsey & Company</div>
-    </div>
-    <div class="stat-box">
-      <div class="s-num">38%</div>
-      <div class="s-text">of employees feel positive about their company's transformation efforts</div>
-      <div class="s-src">McKinsey & Company</div>
+           class="bs-image">
+      <div class="bs-image-grad"></div>
+      <div class="stats-overlay">
+        <div class="overlay-stat">
+          <div class="o-num">&lt;5%</div>
+          <div class="o-text">is what many companies statistically spend on the people side of transformation</div>
+          <div class="o-src">Prosci Best Practices Research</div>
+        </div>
+        <div class="overlay-stat">
+          <div class="o-num">10–15%</div>
+          <div class="o-text">is the minimum investment Prosci recommends for successful transformation efforts</div>
+          <div class="o-src">Prosci Best Practices Research</div>
+        </div>
+        <div class="overlay-stat">
+          <div class="o-num">70%</div>
+          <div class="o-text">of transformations fall short of what they originally set out to achieve</div>
+          <div class="o-src">McKinsey & Company</div>
+        </div>
+        <div class="overlay-stat">
+          <div class="o-num">38%</div>
+          <div class="o-text">of employees feel positive about their company's transformation efforts</div>
+          <div class="o-src">McKinsey & Company</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -236,6 +236,20 @@
       ticking = true;
     }
   }, { passive: true });
+
+  // Crossfade: image -> 2x2 stats grid when Blind Spot section scrolls into view
+  var imgStats = document.querySelector('.image-stats-wrap');
+  if (imgStats && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+          setTimeout(function () { imgStats.classList.add('revealed'); }, 600);
+          io.unobserve(imgStats);
+        }
+      });
+    }, { threshold: [0, 0.4, 0.7] });
+    io.observe(imgStats);
+  }
 })();
 </script>
 

@@ -215,6 +215,59 @@ section { padding: 104px 64px; }
 .s-text { font-size: 13px; line-height: 1.7; color: #6a6560; }
 .s-src { font-size: 10px; color: #3a3830; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 10px; }
 
+/* IMAGE -> STATS CROSSFADE (Blind Spot section, right column) */
+.image-stats-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 520px;
+}
+.image-stats-wrap > .bs-image {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(0.85) contrast(1.05);
+  transition: opacity 1.2s ease;
+}
+.image-stats-wrap > .bs-image-grad {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(30,28,21,0.4) 0%, transparent 40%);
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+.image-stats-wrap > .stats-overlay {
+  position: absolute; inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+.image-stats-wrap.revealed > .bs-image,
+.image-stats-wrap.revealed > .bs-image-grad { opacity: 0; }
+.image-stats-wrap.revealed > .stats-overlay { opacity: 1; pointer-events: auto; }
+
+.overlay-stat {
+  background: var(--dark);
+  padding: 28px 26px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.o-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-weight: 300;
+  color: var(--gold-light); line-height: 1;
+  margin-bottom: 12px;
+}
+.o-text { font-size: 12px; line-height: 1.65; color: #b8b3a8; }
+.o-src {
+  font-size: 9px; color: #6e6a60;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-top: 8px;
+}
+
 /* TESTIMONIALS */
 .testimonials { background: var(--cream-dark); padding-top: 64px; }
 .testimonials h2 {
