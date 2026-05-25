@@ -210,5 +210,34 @@
   <div class="f-right">© 2025 Inborn Genius Corp. &nbsp;·&nbsp; Dr. Masha Malka</div>
 </footer>
 
+<script>
+(function () {
+  var nav = document.querySelector('nav');
+  var lastY = window.scrollY;
+  var ticking = false;
+
+  function update() {
+    var y = window.scrollY;
+    var delta = y - lastY;
+    if (y < 80) {
+      nav.classList.remove('is-hidden');
+    } else if (delta > 4) {
+      nav.classList.add('is-hidden');
+    } else if (delta < -4) {
+      nav.classList.remove('is-hidden');
+    }
+    lastY = y;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+</script>
+
 </body>
 </html>

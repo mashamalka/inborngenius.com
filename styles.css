@@ -29,7 +29,10 @@ nav {
   backdrop-filter: none;
   border-bottom: 3px solid var(--gold);
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  transition: transform 0.35s ease;
+  will-change: transform;
 }
+nav.is-hidden { transform: translateY(-100%); }
 .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
 .nav-monogram {
   width: 52px; height: 52px;
