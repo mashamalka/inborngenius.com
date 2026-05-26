@@ -534,31 +534,13 @@ body.splash-active { overflow: hidden; }
 @media (max-width: 600px) {
   /* Splash overlay */
   .splash-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 18vh;
+    display: block;
     position: fixed;
     inset: 0;
     z-index: 9999;
     background: #fff url('images/splash-mobile.jpg') center center / cover no-repeat;
     pointer-events: none;
     animation: splash-out 0.8s ease-in 2.5s forwards;
-  }
-  .splash-text {
-    width: 88%;
-    max-width: 520px;
-    text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 8vw, 44px);
-    font-weight: 300;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    color: var(--dark);
-  }
-  .splash-text em {
-    font-style: italic;
   }
 
   /* Nav */
