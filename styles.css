@@ -277,14 +277,9 @@ section { padding: 104px 64px; }
 .testimonials { background: var(--cream-dark); padding-top: 64px; }
 .testimonials h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(13px, 1.2vw, 16px);
-  font-weight: 400;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--warm-grey);
-  line-height: 1.15;
-  max-width: none;
-  margin-bottom: 60px;
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 300; line-height: 1.15;
+  max-width: none; margin-bottom: 60px;
 }
 .t-grid {
   display: flex;
