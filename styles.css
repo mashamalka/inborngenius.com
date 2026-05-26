@@ -279,7 +279,7 @@ section { padding: 104px 64px; }
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(32px, 3.5vw, 52px);
   font-weight: 300; line-height: 1.15;
-  max-width: 520px; margin-bottom: 60px;
+  max-width: none; margin-bottom: 60px;
 }
 .t-grid {
   display: grid; grid-template-columns: 1fr 1fr;
