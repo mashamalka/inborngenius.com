@@ -256,6 +256,42 @@
     }, { threshold: [0, 0.4, 0.7] });
     io.observe(imgStats);
   }
+
+  // Testimonials spotlight: whichever card is closest to viewport center is "active"
+  var tCards = document.querySelectorAll('.t-card');
+  if (tCards.length > 0) {
+    var ticking2 = false;
+    function updateActiveCard() {
+      var viewportCenter = window.innerHeight / 2;
+      var closestCard = null;
+      var closestDist = Infinity;
+      tCards.forEach(function (card) {
+        var rect = card.getBoundingClientRect();
+        var cardCenter = rect.top + rect.height / 2;
+        var dist = Math.abs(cardCenter - viewportCenter);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closestCard = card;
+        }
+      });
+      tCards.forEach(function (card) {
+        if (card === closestCard && closestDist < window.innerHeight / 2) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+      ticking2 = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking2) {
+        window.requestAnimationFrame(updateActiveCard);
+        ticking2 = true;
+      }
+    }, { passive: true });
+    window.addEventListener('resize', updateActiveCard, { passive: true });
+    updateActiveCard();
+  }
 })();
 </script>
 
