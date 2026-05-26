@@ -505,14 +505,6 @@ h1 { animation-delay: 0.34s; }
 .hero-anchor { animation-delay: 0.5s; }
 .hero-actions { animation-delay: 0.64s; }
 
-/* MOBILE SPLASH (only shown ≤600px via media query below) */
-.splash-screen { display: none; }
-body.splash-active { overflow: hidden; }
-@keyframes splash-out {
-  0%   { opacity: 1; }
-  100% { opacity: 0; visibility: hidden; }
-}
-
 /* RESPONSIVE — Tablet */
 @media (max-width: 960px) {
   nav { padding: 18px 24px; }
@@ -532,17 +524,6 @@ body.splash-active { overflow: hidden; }
 
 /* RESPONSIVE — Phone */
 @media (max-width: 600px) {
-  /* Splash overlay */
-  .splash-screen {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: #fff url('images/splash-v2.jpg') center center / cover no-repeat;
-    pointer-events: none;
-    animation: splash-out 0.8s ease-in 2.5s forwards;
-  }
-
   /* Nav */
   nav { padding: 14px 18px; }
   .nav-monogram { width: 42px; height: 42px; font-size: 18px; }
