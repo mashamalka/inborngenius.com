@@ -9,6 +9,9 @@
 </head>
 <body>
 
+<!-- SPLASH (mobile only) -->
+<div class="splash-screen" aria-hidden="true"></div>
+
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
@@ -213,6 +216,14 @@
 
 <script>
 (function () {
+  // Mobile splash: lock scroll while overlay is visible, then unlock after fade completes
+  if (window.matchMedia && window.matchMedia('(max-width: 600px)').matches) {
+    document.body.classList.add('splash-active');
+    setTimeout(function () {
+      document.body.classList.remove('splash-active');
+    }, 3300);  // 2500ms hold + 800ms fade (must match CSS)
+  }
+
   var nav = document.querySelector('nav');
   var lastY = window.scrollY;
   var ticking = false;
